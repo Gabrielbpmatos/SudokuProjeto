@@ -13,6 +13,7 @@ class SudokuBoard {
 			throw new IllegalArgumentException("Matriz de Sudoku inválida");
 		}
 		this.board = SudokuAux.gerarMatriz(initialBoard, dificuldade);
+		this.initialGame = this.board;
 
 		if (dificuldade < 0 || dificuldade > 100) {
 			throw new IllegalArgumentException("A dificuldade deve estar entre 1 e 100");
@@ -64,8 +65,8 @@ class SudokuBoard {
 	        }
 	    }
 	}
-	
-	 // Reiniciar o tabuleiro para a configuração inicial
+	//5.
+	 // Reinicia o tabuleiro para a configuração inicial
     public void reiniciarTabuleiro() {
         for (int i = 0; i < initialGame.length; i++) {
             for (int j = 0; j < initialGame[0].length; j++) {
@@ -75,7 +76,6 @@ class SudokuBoard {
         // Atualiza a imagem do tabuleiro
         boardImagem = SudokuAux.desenharSudoku(board);
     }
-
 
 
 	public static void testJogadaRandom() {
@@ -96,13 +96,7 @@ class SudokuBoard {
 		SudokuBoard sudokuBoard = new SudokuBoard(initialBoard, 5);
 		
 		System.out.println(sudokuBoard.getNumberAtCoordinate(1, 1));
-		/*print(sudokuBoard);
-		sudokuBoard.jogadaRandom();
-
-		System.out.println("\nBoard after jogadaRandom:");
-		printBoard(sudokuBoard);
-	}
-		 */
+	
 	}
 }
 
